@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皇山润涧 - 高品质茶叶供应商</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32',
+                        secondary: '#8D6E63',
+                        accent: '#F57C00',
+                        light: '#F1F8E9',
+                        dark: '#1B5E20'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .carousel-control {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .carousel-container:hover .carousel-control {
+                opacity: 1;
+            }
+            .event-card {
+                @apply bg-white rounded-xl shadow-md overflow-hidden hover-scale transition-custom;
+            }
+            .btn-primary {
+                @apply bg-primary hover:bg-dark text-white font-semibold py-2 px-6 rounded-full transition-custom transform hover:-translate-y-1 shadow-md hover:shadow-lg;
+            }
+            .carousel-slide {
+                display: none;
+            }
+            .carousel-slide.active {
+                display: block;
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            .carousel-indicator {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .carousel-indicator.active {
+                background-color: white;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-light text-gray-800 overflow-x-hidden">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <i class="fa-solid fa-leaf text-primary text-3xl"></i>
+                <span class="text-2xl font-bold text-white text-shadow-lg">皇山润涧</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-accent transition-custom font-medium">首頁</a>
+                <a href="#about" class="text-white hover:text-accent transition-custom font-medium">關於我們</a>
+                <a href="#products" class="text-white hover:text-accent transition-custom font-medium">產品介紹</a>
+                <a href="#process" class="text-white hover:text-accent transition-custom font-medium">製茶工藝</a>
+                <a href="#tea-party" class="text-white hover:text-accent transition-custom font-medium">品茶會</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-primary hover:text-accent transition-custom py-2 border-b border-gray-100">首頁</a>
+                <a href="#about" class="text-primary hover:text-accent transition-custom py-2 border-b border-gray-100">關於我們</a>
+                <a href="#products" class="text-primary hover:text-accent transition-custom py-2 border-b border-gray-100">產品介紹</a>
+                <a href="#process" class="text-primary hover:text-accent transition-custom py-2 border-b border-gray-100">製茶工藝</a>
+                <a href="#tea-party" class="text-primary hover:text-accent transition-custom py-2">品茶會</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images\zhuye1.png" alt="茶园风景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <img src="images\shangbiao.jpg" alt="正方形图片" class="w-64 h-64 mx-auto mb-6 object-cover rounded">
+            <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-white mb-6 leading-tight text-shadow-lg animate-fadeIn">
+                 一山 一澗  一世界
+            </h1>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-primary hover:bg-dark text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-custom transform hover:-translate-y-1">
+                    產品介紹
+                </a>
+                <a href="#about" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-custom transform hover:-translate-y-1">
+                    聯係我們
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#about" class="flex flex-col items-center">
+                <span class="mb-2">向下滚动</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block text-primary font-semibold mb-2">關於我們</span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-gray-800 mb-4">百年匠心，只爲一杯好茶</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 图片轮播区域 -->
+                <div class="relative" id="aboutCarousel">
+                    <div class="carousel-container rounded-lg shadow-xl overflow-hidden">
+                        <!-- 轮播图片 -->
+                        <div class="carousel-slide active">
+                            <img src="images\aboutus1.jpg" alt="茶园风景" class="w-full h-auto">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images\aboutus2.jpg" alt="采茶场景" class="w-full h-auto">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images\aboutus3.jpg" alt="制茶工艺" class="w-full h-auto">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images\aboutus4.jpg" alt="茶叶品鉴" class="w-full h-auto">
+                        </div>
+                        
+                        <!-- 轮播控制按钮 -->
+                        <button class="carousel-control prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-custom" onclick="prevSlide('aboutCarousel')">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-custom" onclick="nextSlide('aboutCarousel')">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        
+                        <!-- 轮播指示器 -->
+                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <span class="carousel-indicator active" onclick="goToSlide('aboutCarousel', 0)"></span>
+                            <span class="carousel-indicator" onclick="goToSlide('aboutCarousel', 1)"></span>
+                            <span class="carousel-indicator" onclick="goToSlide('aboutCarousel', 2)"></span>
+                            <span class="carousel-indicator" onclick="goToSlide('aboutCarousel', 3)"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">皇山润涧的故事</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        皇山潤澗創辦於 2015 年，是集茶葉研製、銷售、文化傳播及茶旅服務為一體的綜合性知名茶企。
+從品牌建立之初，皇山潤澗始終堅守「不忘初心·做杯良心茶」的經營理念，以「樅古至今」的嚴苛品控標準，以「巖裡芷有你」的浪漫情懷與承諾，以「巖出如山·飛龍在天」的擔當與遠見，刻畫人與自然之間的和諧共生，搭建愛茶者與武夷山水之間的大美橋樑。
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">電話</h4>
+                                <p class="text-gray-600 text-sm">+852 6299 5037</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">電郵</h4>
+                                <p class="text-gray-600 text-sm">Qzteatrading2025@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start md:col-span-2">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">地址</h4>
+                                <p class="text-gray-600 text-sm">九龍灣宏光道 39 號宏天廣場 2609-2610</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center text-primary font-semibold hover:text-dark transition-custom">
+                        瞭解更多關於我們的故事
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section id="products" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block text-primary font-semibold mb-2">產品介紹</span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-gray-800 mb-4">精選產品</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    我們精心挑選每一片茶葉，從源頭把控品質，只為給您帶來最純正的茶香體驗
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <!-- 产品分类标签 -->
+            <!-- <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="product-filter-btn active bg-primary text-white py-2 px-6 rounded-full shadow-sm" data-filter="all">全部产品</button>
+                <button class="product-filter-btn bg-white text-gray-800 hover:bg-primary/10 py-2 px-6 rounded-full shadow-sm transition-custom" data-filter="oolong">乌龙茶</button>
+                <button class="product-filter-btn bg-white text-gray-800 hover:bg-primary/10 py-2 px-6 rounded-full shadow-sm transition-custom" data-filter="green">绿茶</button>
+                <button class="product-filter-btn bg-white text-gray-800 hover:bg-primary/10 py-2 px-6 rounded-full shadow-sm transition-custom" data-filter="black">红茶</button>
+                <button class="product-filter-btn bg-white text-gray-800 hover:bg-primary/10 py-2 px-6 rounded-full shadow-sm transition-custom" data-filter="pu-erh">普洱茶</button>
+                <button class="product-filter-btn bg-white text-gray-800 hover:bg-primary/10 py-2 px-6 rounded-full shadow-sm transition-custom" data-filter="flower">花茶</button>
+            </div> -->
+            
+            <!-- 产品网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- 产品1 - 九崖丹叢 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\jiuyadancong.jpg" alt="九崖丹叢" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            经典
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">九崖丹叢</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">樅華九味傳高古，丹山碧水賜韻舒</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$9,999</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥468</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-1')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品2 - 上者之巔 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\shangzhezhidian.jpg" alt="上者之巔" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            限量
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">上者之巔</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">上則淩雲登九霄，俯覽三山五岳巔</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$5,280</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥728</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-2')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品3 - 三澗合一 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\sanjianheyi.jpg" alt="三澗合一" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">三澗合一</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-o text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">三澗清泉匯一川，雲山飛雪化長煙</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$4,380</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥528</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-3')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品4 - 樅古至今 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\congguzhijin.jpg" alt="樅古至今" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            畅销
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">樅古至今</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">九州之濁我可清，萬代之醉我獨醒</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$2,680</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥458</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-4')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品5 - 飛龍在天 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\feilongzaitian.jpg" alt="飛龍在天" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">飛龍在天</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-o text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">飛龍在天，騰龍之心，昭昭於沖天香意也</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$2,680</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥498</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-5')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品6 - 不忘初心 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\buwangchuxin.jpg" alt="不忘初心" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">不忘初心</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">真味深醇藏歲月，初心不忘襄韻華</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$2,680</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥428</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-6')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品7 - 前程似錦 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\qianchengsijin.jpg" alt="前程似錦" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">前程似錦</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-o text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">前程風雲憑翼展，九天日月待君攀</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$2,080</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥488</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-7')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品8 - 岩里芷有你 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\yanlizhiyouni.jpg" alt="岩里芷有你" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            人气
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">岩里芷有你</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">虎嘯岩英君細嗅，柔絲綿韻解情濃</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$1,880</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥438</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-8')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品9 - 素心蘭 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\suxinlan.jpg" alt="素心蘭" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">素心蘭</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-o text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">素潔仁心載毓秀，蘭香滿庭雅客來</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$980</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥418</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-9')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品10 - 向陽而生 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="green">
+                    <div class="relative overflow-hidden">
+                        <img src="images\xiangyangersheng.jpg" alt="向陽而生" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">向陽而生</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">朝陽出銳香，岩上開仙酌</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$980</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥358</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-10')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品11 - 金鎖匙 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="black">
+                    <div class="relative overflow-hidden">
+                        <img src="images\jinsuoshi.jpg" alt="金鎖匙" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">金鎖匙</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-o text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">鑰開八面金錢鎖，茶汲四方岩骨香</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$880</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥518</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-11')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品12 - 見喜 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="pu-erh">
+                    <div class="relative overflow-hidden">
+                        <img src="images\jianxi.jpg" alt="見喜" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">見喜</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">既見君子，雲胡不喜</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$880</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥618</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-12')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品13 - 岩骨花香 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="oolong">
+                    <div class="relative overflow-hidden">
+                        <img src="images\yangguhuaxiang.png" alt="岩骨花香" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">岩骨花香</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-o text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">野芳無意苦爭春，岩骨寧碎化為塵</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$580</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥528</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-13')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品14 - 1989 -->
+                <div class="product-item bg-white rounded-xl shadow-md overflow-hidden hover-scale group" data-category="pu-erh">
+                    <div class="relative overflow-hidden">
+                        <img src="images\1989.jpg" alt="1989" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-semibold py-1 px-3 rounded-full">
+                            珍藏
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">1989</h3>
+                            <div class="flex">
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star text-yellow-400"></i>
+                                <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">料是武夷真逸品，邀君一啜絕塵蹤</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">$480</span>
+                                <!-- <span class="text-gray-400 line-through text-sm ml-2">¥1088</span> -->
+                            </div>
+                            <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white p-2 rounded-full transition-custom" onclick="openModal('modal-14')">
+                                <i class="fa-solid fa-info"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 制茶工艺 -->
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block text-primary font-semibold mb-2">製茶工藝</span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-gray-800 mb-4">匠心傳承，古法精製</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    每一片茶葉都凝聚著我們製茶師傅的心血與智慧，遵循傳統工藝，結合現代科技，打造極致品質
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">采茶</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我們堅持手工採摘，只選取茶樹頂端最鮮嫩的一芽一葉或一芽兩葉。採茶時間嚴格控制在清晨露水未乾時，此時茶葉含水量適中，有效成分豐富。
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        採茶工都經過嚴格訓練，掌握正確的採摘手法，確保茶葉完整無損，不損傷茶樹。每一位採茶工每天的採摘量有限，以保證採摘質量。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-clock text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">最佳時間</h4>
+                                <p class="text-gray-600 text-sm">清晨5-9點</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-leaf text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">采摘標準</h4>
+                                <p class="text-gray-600 text-sm">一芽一葉初展</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="images\caicha.jpg" alt="采茶" class="w-full h-auto rounded-lg shadow-xl">
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 md:order-1">
+                    <img src="images\zhicha.jpg" alt="制茶" class="w-full h-auto rounded-lg shadow-xl">
+                </div>
+                
+                <div class="order-1 md:order-2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">制茶</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我們的製茶工藝傳承百年，每一道工序都有嚴格的標準和要求。從攤青、殺青、揉捻到乾燥，每一步都由經驗豐富的製茶師傅精心把控。
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        我們堅持傳統工藝與現代科技相結合，在保留茶葉原有風味的同時，提高生產效率和產品品質。每一批茶葉都要經過多道篩選，確保品質均勻一致。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品茶会 -->
+    <section id="tea-party" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block text-primary font-semibold mb-2">茶文化活動</span>
+                <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-gray-800 mb-4">皇山润涧品茶會</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    品味茶香，感受茶文化的魅力。參加我們的品茶會，與茶友一起探索茶葉的奧秘。
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <!-- 即将举办的活动 -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">即將舉辦的品茶會</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 活动1 -->
+                    <div class="event-card">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="images\品茶會.jpg" alt="春季新茶品鉴会" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="bg-accent text-white text-xs font-semibold py-1 px-3 rounded-full">
+                                    新茶品鉴
+                                </span>
+                                <h4 class="text-xl font-bold mt-2">春季新茶品鋻會</h4>
+                                <p class="text-sm opacity-90"><i class="fa-solid fa-calendar mr-2"></i> 2025年4月15日 (周六)</p>
+                                <p class="text-sm opacity-90"><i class="fa-solid fa-clock mr-2"></i> 14:00 - 16:30</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                品鑑今年首批春茶，包括碧螺春、龍井等名茶。專業茶藝師現場講解茶葉知識和沖泡技巧。
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">免費參加</span>
+                                <button class="btn-primary" onclick="openRegisterModal('modal-spring')">立即報名</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 活动2 -->
+                    <div class="event-card">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="images\品茶會.jpg" alt="普洱茶陈化讲座" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="bg-secondary text-white text-xs font-semibold py-1 px-3 rounded-full">
+                                    專題講座
+                                </span>
+                                <h4 class="text-xl font-bold mt-2">普洱茶陳化與品鑑講座</h4>
+                                <p class="text-sm opacity-90"><i class="fa-solid fa-calendar mr-2"></i> 2025年4月22日 (周六)</p>
+                                <p class="text-sm opacity-90"><i class="fa-solid fa-clock mr-2"></i> 10:00 - 12:00</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 mb-4">
+                                深入了解普洱茶的陳化過程和品鑑方法，品嘗不同年份的普洱茶，學習如何保存和陳化普洱茶。
+
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">免費參加</span>
+                                <button class="btn-primary" onclick="openRegisterModal('modal-puer')">立即報名</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 即将推出的活动 -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">即將推出的活動</h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- 活动预告1 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md hover-scale">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-leaf text-primary"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">茶藝培訓課程</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">系統學習中國傳統茶藝，從茶葉知識到沖泡技巧，成為茶藝達人。</p>
+                        <p class="text-sm text-gray-500">預計2025年5月推出</p>
+                    </div>
+                    
+                    <!-- 活动预告2 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md hover-scale">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-map-location-dot text-primary"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">茶園觀光之旅</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">參觀我們的有機茶園，了解茶葉的生長環境和採摘過程，體驗採茶樂趣。</p>
+                        <p class="text-sm text-gray-500">預計2025年6月推出</p>
+                    </div>
+                    
+                    <!-- 活动预告3 -->
+                    <div class="bg-white rounded-xl p-6 shadow-md hover-scale">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary/10 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-book text-primary"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">茶文化講座系列</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">邀請茶文化專家講解中國茶文化歷史、茶與健康、茶具鑑賞等知識。</p>
+                        <p class="text-sm text-gray-500">預計2025年7月推出</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 报名表单模态框 -->
+            <div id="modal-spring" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative">
+                    <button class="close-modal absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">春季新茶品鉴会报名</h3>
+                    <form id="spring-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">手机号码</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">电子邮箱</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言（可选）</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-semibold py-3 px-6 rounded-lg transition-custom transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                            提交报名
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="modal-puer" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                <div class="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative">
+                    <button class="close-modal absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">普洱茶陈化与品鉴讲座报名</h3>
+                    <form id="puer-form">
+                        <div class="mb-4">
+                            <label for="name-puer" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                            <input type="text" id="name-puer" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone-puer" class="block text-sm font-medium text-gray-700 mb-1">手机号码</label>
+                            <input type="tel" id="phone-puer" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email-puer" class="block text-sm font-medium text-gray-700 mb-1">电子邮箱</label>
+                            <input type="email" id="email-puer" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message-puer" class="block text-sm font-medium text-gray-700 mb-1">留言（可选）</label>
+                            <textarea id="message-puer" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-custom"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-semibold py-3 px-6 rounded-lg transition-custom transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                            提交报名
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品详情模态框（示例：仅展示第一个产品，其余可复制结构） -->
+    <div id="modal-1" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-2xl p-6 relative">
+            <button class="close-modal absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <img src="https://picsum.photos/id/431/800/800" alt="九崖丹叢" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">九崖丹叢</h3>
+                    <div class="flex mb-4">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                        <span class="ml-2 text-gray-600">(4.5/5)</span>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-primary font-bold text-2xl">¥398</span>
+                        <span class="text-gray-400 line-through text-sm ml-2">¥468</span>
+                        <span class="bg-primary text-white text-xs font-semibold py-1 px-3 rounded-full ml-2">
+                            经典
+                        </span>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        九崖丹叢选自武夷山崖间老枞茶树，经传统工艺精制而成。茶叶条索紧结，色泽乌润，香气馥郁持久，带有独特的岩骨花香。
+                    </p>
+                    <h4 class="font-semibold text-gray-800 mb-2">产品特点</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>百年老枞茶树，手工采摘一芽二叶</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>汤色橙黄明亮，香气清高持久</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>滋味醇厚甘鲜，回甘明显，岩韵突出</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>叶底软亮匀齐，红边明显</span>
+                        </li>
+                    </ul>
+                    <h4 class="font-semibold text-gray-800 mb-2">冲泡建议</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>水温：100℃沸水</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>投茶量：8-10克（紫砂壶）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-primary mt-1 mr-2"></i>
+                            <span>冲泡时间：第一泡10秒出汤，后续每泡增加5秒</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary hover:bg-dark text-white font-semibold py-3 px-6 rounded-lg transition-custom transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                        立即购买
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 其他产品模态框（省略重复代码，实际使用中需补充完整14个产品） -->
+    <div id="modal-2" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <!-- 模态框内容 -->
+    </div>
+    <!-- 模态框3-14 略 -->
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'shadow-md', 'py-2');
+                navbar.classList.remove('bg-transparent', 'py-4');
+                document.querySelectorAll('#navbar a').forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-primary');
+                });
+                document.querySelector('#navbar i').classList.remove('text-white');
+                document.querySelector('#navbar i').classList.add('text-primary');
+            } else {
+                navbar.classList.remove('bg-white/90', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+                document.querySelectorAll('#navbar a').forEach(link => {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-primary');
+                });
+                document.querySelector('#navbar i').classList.add('text-white');
+                document.querySelector('#navbar i').classList.remove('text-primary');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 如果是移动端，点击导航链接后关闭菜单
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // 产品筛选功能
+        document.querySelectorAll('.product-filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // 更新按钮状态
+                document.querySelectorAll('.product-filter-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-800');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('bg-white', 'text-gray-800');
+                
+                // 筛选产品
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.product-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none
